@@ -31,21 +31,23 @@
               class="block text-gray-700 text-2xl dark:text-gray-300"
               >Number of Die Remaining:</label
             >
-            <div class="flex items-center space-x-2">
+            <div
+              class="flex flex-col sm:flex-row items-center sm:space-x-2 space-y-2 sm:space-y-0"
+            >
               <input
                 type="number"
                 id="n"
-                class="flex-grow p-3 text-2xl border-2 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-2 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+                class="w-full sm:flex-grow p-3 text-xl border-2 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 min="1"
                 required
               />
               <button
                 type="button"
                 onclick="document.getElementById('n').value = '';"
-                class="px-4 py-2 tex-2xl text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
-                aria-label="Clear input"
+                class="w-full sm:w-auto px-4 py-2 text-lg text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+                aria-label="Clear input and table"
               >
-                X
+                Clear
               </button>
             </div>
           </div>
@@ -83,31 +85,26 @@
             <button
               id="calculateBtn"
               class="w-full bg-blue-600 text-white p-3 rounded-lg text-xl hover:bg-blue-700 transition duration-200 dark:bg-blue-700 dark:hover:bg-blue-800"
+              hidden
             >
               Calculate Probability
             </button>
           </div>
 
-          <!-- Result Table -->
-          <div class="mt-6">
-            <table class="min-w-full text-center table-auto border-collapse">
+          <!-- Table to display results -->
+          <div id="result" class="hidden mt-6">
+            <table class="min-w-full table-auto">
               <thead>
                 <tr>
-                  <th
-                    class="px-4 py-2 bg-gray-200 text-xl dark:bg-gray-700 text-gray-700 dark:text-gray-200"
-                  >
+                  <th class="border px-4 py-2 text-left text-2xl">
                     Match count
                   </th>
-                  <th
-                    class="px-4 py-2 bg-gray-200 text-xl dark:bg-gray-700 text-gray-700 dark:text-gray-200"
-                  >
+                  <th class="border px-4 py-2 text-left text-2xl">
                     Probability
                   </th>
                 </tr>
               </thead>
-              <tbody id="probabilityTableBody">
-                <!-- Dynamic rows will be inserted here -->
-              </tbody>
+              <tbody id="probabilityTable"></tbody>
             </table>
           </div>
         </div>
