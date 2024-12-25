@@ -28,16 +28,26 @@
           <div class="space-y-2">
             <label
               for="n"
-              class="block text-gray-700 text-xl dark:text-gray-300"
+              class="block text-gray-700 text-2xl dark:text-gray-300"
               >Number of Die Remaining:</label
             >
-            <input
-              type="number"
-              id="n"
-              class="w-full p-3 border-2 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              min="1"
-              required
-            />
+            <div class="flex items-center space-x-2">
+              <input
+                type="number"
+                id="n"
+                class="flex-grow p-3 text-2xl border-2 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-2 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+                min="1"
+                required
+              />
+              <button
+                type="button"
+                onclick="document.getElementById('n').value = '';"
+                class="px-4 py-2 tex-2xl text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+                aria-label="Clear input"
+              >
+                X
+              </button>
+            </div>
           </div>
           <div class="hidden">
             <label
