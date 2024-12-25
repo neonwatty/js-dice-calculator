@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Simulation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200 font-sans"
+  >
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full space-y-6">
+        <h1 class="text-3xl font-semibold text-center text-gray-800">
+          Dice Simulation Probability
+        </h1>
+
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <label for="n" class="block text-gray-700 text-lg"
+              >Number of Dice (n):</label
+            >
+            <input
+              type="number"
+              id="n"
+              class="w-full p-3 border-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              min="1"
+              required
+            />
+          </div>
+          <div class="space-y-2">
+            <label for="m" class="block text-gray-700 text-lg"
+              >Minimum Matches (m):</label
+            >
+            <input
+              type="number"
+              id="m"
+              class="w-full p-3 border-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              min="1"
+              required
+            />
+          </div>
+          <div class="space-y-2">
+            <label for="c" class="block text-gray-700 text-lg"
+              >Number of Simulations (c):</label
+            >
+            <input
+              type="number"
+              id="c"
+              class="w-full p-3 border-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              min="1"
+              value="10000"
+              required
+            />
+          </div>
+          <div>
+            <button
+              id="calculateBtn"
+              class="w-full bg-blue-600 text-white p-3 rounded-lg text-xl hover:bg-blue-700 transition duration-200"
+            >
+              Calculate Probability
+            </button>
+          </div>
+        </div>
+
+        <!-- Probability Result Section with improved UX -->
+        <div
+          id="result"
+          class="mt-6 text-center hidden bg-blue-50 border-2 border-blue-300 p-6 rounded-lg shadow-md"
+        >
+          <p class="text-3xl font-semibold text-blue-600">Probability:</p>
+          <span
+            id="probability"
+            class="text-4xl font-bold text-blue-700"
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- External JavaScript File -->
+    <script src="js/calculator.js"></script>
+
+    <script>
+      // Handle button click to calculate probability
+      document
+        .getElementById("calculateBtn")
+        .addEventListener("click", function () {
+          const n = parseInt(document.getElementById("n").value);
+          const m = parseInt(document.getElementById("m").value);
+          const c = parseInt(document.getElementById("c").value);
+
+          const probability = probabilityOfMOrMoreSameSimulated(n, m, c);
+          document.getElementById("probability").textContent = `${probability}`;
+          document.getElementById("result").classList.remove("hidden");
+        });
+    </script>
+  </body>
+</html>
