@@ -28,8 +28,8 @@
           <div class="space-y-2">
             <label
               for="n"
-              class="block text-gray-700 text-lg dark:text-gray-300"
-              >Number of Dice Remaining:</label
+              class="block text-gray-700 text-xl dark:text-gray-300"
+              >Number of Die Remaining:</label
             >
             <input
               type="number"
@@ -39,7 +39,7 @@
               required
             />
           </div>
-          <div class="space-y-2">
+          <div class="hidden">
             <label
               for="m"
               class="block text-gray-700 text-lg dark:text-gray-300"
@@ -77,42 +77,34 @@
               Calculate Probability
             </button>
           </div>
-        </div>
 
-        <!-- Probability Result Section -->
-        <div
-          id="result"
-          class="mt-6 text-center hidden bg-blue-50 border-2 border-blue-300 p-6 rounded-lg shadow-md dark:bg-blue-800 dark:border-blue-700"
-        >
-          <p class="text-3xl font-semibold text-blue-600 dark:text-blue-400">
-            Probability:
-          </p>
-          <span
-            id="probability"
-            class="text-4xl font-bold text-blue-700 dark:text-blue-300"
-          ></span>
+          <!-- Result Table -->
+          <div class="mt-6">
+            <table class="min-w-full text-center table-auto border-collapse">
+              <thead>
+                <tr>
+                  <th
+                    class="px-4 py-2 bg-gray-200 text-xl dark:bg-gray-700 text-gray-700 dark:text-gray-200"
+                  >
+                    Match count
+                  </th>
+                  <th
+                    class="px-4 py-2 bg-gray-200 text-xl dark:bg-gray-700 text-gray-700 dark:text-gray-200"
+                  >
+                    Probability
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="probabilityTableBody">
+                <!-- Dynamic rows will be inserted here -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- External JavaScript File -->
     <script src="js/calculator.js"></script>
-
-    <script>
-      // Handle button click to calculate probability
-      document
-        .getElementById("calculateBtn")
-        .addEventListener("click", function () {
-          const n = parseInt(document.getElementById("n").value);
-          const m = parseInt(document.getElementById("m").value);
-
-          // Set c to a default value (10000) without showing the input field
-          const c = 10000;
-
-          const probability = probabilityOfMOrMoreSameSimulated(n, m, c);
-          document.getElementById("probability").textContent = `${probability}`;
-          document.getElementById("result").classList.remove("hidden");
-        });
-    </script>
   </body>
 </html>
