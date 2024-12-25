@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dice Simulation</title>
+    <title>Liar's dice helper - YOLO version 🤪</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
@@ -14,17 +14,22 @@
         class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full space-y-6 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
       >
         <h1
-          class="text-3xl font-semibold text-center text-gray-800 dark:text-gray-100"
+          class="text-3xl font-semibold text-gray-800 dark:text-gray-100 inline-block"
         >
           Liar's dice helper
         </h1>
+        <h2
+          class="text-lg font-semibold text-gray-700 dark:text-gray-200 inline-block align-baseline"
+        >
+          YOLO edition 🤩
+        </h2>
 
         <div class="space-y-6">
           <div class="space-y-2">
             <label
               for="n"
               class="block text-gray-700 text-lg dark:text-gray-300"
-              >Number of Dice (n):</label
+              >Number of Dice Remaining:</label
             >
             <input
               type="number"
@@ -38,7 +43,7 @@
             <label
               for="m"
               class="block text-gray-700 text-lg dark:text-gray-300"
-              >Minimum Matches (m):</label
+              >Number of Matches Called:</label
             >
             <input
               type="number"
@@ -48,7 +53,8 @@
               required
             />
           </div>
-          <div class="space-y-2">
+          <!-- Hidden input for 'c' -->
+          <div class="hidden">
             <label
               for="c"
               class="block text-gray-700 text-lg dark:text-gray-300"
@@ -99,7 +105,9 @@
         .addEventListener("click", function () {
           const n = parseInt(document.getElementById("n").value);
           const m = parseInt(document.getElementById("m").value);
-          const c = parseInt(document.getElementById("c").value);
+
+          // Set c to a default value (10000) without showing the input field
+          const c = 10000;
 
           const probability = probabilityOfMOrMoreSameSimulated(n, m, c);
           document.getElementById("probability").textContent = `${probability}`;
