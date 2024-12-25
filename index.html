@@ -7,47 +7,57 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
-    class="bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200 font-sans"
+    class="bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200 font-sans dark:bg-gradient-to-r dark:from-blue-800 dark:via-blue-900 dark:to-blue-900 dark:text-white dark:shadow-lg"
   >
     <div class="flex items-center justify-center min-h-screen">
-      <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full space-y-6">
-        <h1 class="text-3xl font-semibold text-center text-gray-800">
-          Dice Simulation Probability
+      <div
+        class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full space-y-6 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+      >
+        <h1
+          class="text-3xl font-semibold text-center text-gray-800 dark:text-gray-100"
+        >
+          Liar's dice helper
         </h1>
 
         <div class="space-y-6">
           <div class="space-y-2">
-            <label for="n" class="block text-gray-700 text-lg"
+            <label
+              for="n"
+              class="block text-gray-700 text-lg dark:text-gray-300"
               >Number of Dice (n):</label
             >
             <input
               type="number"
               id="n"
-              class="w-full p-3 border-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full p-3 border-2 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               min="1"
               required
             />
           </div>
           <div class="space-y-2">
-            <label for="m" class="block text-gray-700 text-lg"
+            <label
+              for="m"
+              class="block text-gray-700 text-lg dark:text-gray-300"
               >Minimum Matches (m):</label
             >
             <input
               type="number"
               id="m"
-              class="w-full p-3 border-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full p-3 border-2 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               min="1"
               required
             />
           </div>
           <div class="space-y-2">
-            <label for="c" class="block text-gray-700 text-lg"
+            <label
+              for="c"
+              class="block text-gray-700 text-lg dark:text-gray-300"
               >Number of Simulations (c):</label
             >
             <input
               type="number"
               id="c"
-              class="w-full p-3 border-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full p-3 border-2 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               min="1"
               value="10000"
               required
@@ -56,22 +66,24 @@
           <div>
             <button
               id="calculateBtn"
-              class="w-full bg-blue-600 text-white p-3 rounded-lg text-xl hover:bg-blue-700 transition duration-200"
+              class="w-full bg-blue-600 text-white p-3 rounded-lg text-xl hover:bg-blue-700 transition duration-200 dark:bg-blue-700 dark:hover:bg-blue-800"
             >
               Calculate Probability
             </button>
           </div>
         </div>
 
-        <!-- Probability Result Section with improved UX -->
+        <!-- Probability Result Section -->
         <div
           id="result"
-          class="mt-6 text-center hidden bg-blue-50 border-2 border-blue-300 p-6 rounded-lg shadow-md"
+          class="mt-6 text-center hidden bg-blue-50 border-2 border-blue-300 p-6 rounded-lg shadow-md dark:bg-blue-800 dark:border-blue-700"
         >
-          <p class="text-3xl font-semibold text-blue-600">Probability:</p>
+          <p class="text-3xl font-semibold text-blue-600 dark:text-blue-400">
+            Probability:
+          </p>
           <span
             id="probability"
-            class="text-4xl font-bold text-blue-700"
+            class="text-4xl font-bold text-blue-700 dark:text-blue-300"
           ></span>
         </div>
       </div>
